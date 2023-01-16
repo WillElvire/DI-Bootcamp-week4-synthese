@@ -1,0 +1,54 @@
+
+<br>
+<br>
+<form>
+  <label>Nom</label>
+  <input name="lastname" type="text" [(ngModel)]="register.lastname">
+  <br>
+  <label>Prenom</label>
+  <input name="firstname" type="text" [(ngModel)]="register.firstname">
+  <br>
+  <label>Mot de passe</label>
+  <input name="password" type="password" [(ngModel)]="register.password">
+  <br>
+  <label>Email</label>
+  <input name="email" type="email" required [(ngModel)]="register.email">
+  <br>
+  <label>Confirmation de Mot de passe</label>
+  <input name="confirm-password" type="password" [(ngModel)]="register.passwordConfirm">
+  <br>
+  <label>Condition general d'utilisation</label>
+  <input type="checkbox" name="cgu" [(ngModel)]="register.cgu">
+  <br>
+  <br>
+  <button type="button" (click)="submitRegisterForm()"> S'inscrire</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+<hr>
+
+<p> Nom : {{register.lastname}}</p>
+<p> Prenom : {{register.firstname}}</p>
+<p> Password : {{register.password}}</p>
+<p> Password confirm  : {{register.passwordConfirm}}</p>
+<p> CGU : {{register.cgu}}</p>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>username</th>
+    <th>email</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{user?.id}}</td>
+    <td>{{user?.name}}</td>
+    <td>{{user?.username}}</td>
+    <td>{{user?.email}}</td>
+    <td><button (click)="modifyUser(user)">edit</button></td>
+
+  </tr>
+</table>
